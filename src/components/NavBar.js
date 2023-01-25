@@ -23,7 +23,7 @@ export default function NavBar() {
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/create">Create</Nav.Link>
-              <Nav.Link href="/recipe">Recipe</Nav.Link>
+              <Nav.Link href="/recipe/:id">Recipe</Nav.Link>
               <Nav.Link href="/search">Search</Nav.Link>
               {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
