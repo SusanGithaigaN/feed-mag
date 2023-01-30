@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { useRef } from 'react';
 import React from 'react';
 import './Create.css'
 
@@ -7,11 +7,33 @@ function Create(){
     const[title, setTitle] = useState('')
     const[method, setMethod] = useState('')
     const[cookingTime, setCookingTime] = useState('')
+    // create state for a new ingredient
+    const[newIngredient, setNewIngredient]= useState('')
+    // add ingredients to an array of ingredients
+    const[ingredients, setIngredients] = useState([])
+
+    const ingredientInput = useRef(null)
 
     // create a function that handles the submit event
     function handleSubmit(event){
         event.preventDefault();
-        console.log(title, method, cookingTime);
+        console.log(title, method, cookingTime, ingredients,);
+    }
+    // create a function that handles add
+    function handleAdd(e){
+        e.preventDefault();
+        // .trim removes any whitespace
+        const ing= newIngredient.trim();
+
+        
+        // prevent adding duplicates
+        if(ing && !ingredients.includes(ing)){
+            setIngredients(prevIngredients => [...prevIngredients, ing]);
+        } 
+        // clear the input field
+        setNewIngredient('')
+        // focus the input field
+        ingredientInput.current.focus()
     }
     
     return(
@@ -28,7 +50,20 @@ function Create(){
                     />
                 </label>
                 {/* add ingredients */}
-                
+                <label>
+                    <span>Recipe ingredients:</span>
+                    <div className='ingredients'>
+                    {/* add one ingredient at a time */}
+                        <input type="text"
+                            onChange={(e) =>setNewIngredient(e.target.value)}
+                            value ={newIngredient}
+                            ref ={ingredientInput}
+                         />
+                        <button onClick={handleAdd} className='btn'>Add</button>
+                    </div>
+                </label>
+                    {/* output ingredients */}
+                    <p>Current Ingredients: {ingredients.map(i => <em key={i}>{i}, </em>)}</p>
                 <label>
                     <span>Recipe method:</span>
                         <textarea

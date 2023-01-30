@@ -28,3 +28,10 @@
     background-color: paleturquoise;
     color: black;
   }
+  .ingredients{
+    display: flex;
+    align-items: center;
+  }
+  .ingredients button{
+    margin: 0 0 0 10px;
+  }
