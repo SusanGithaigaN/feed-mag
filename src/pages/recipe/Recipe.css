@@ -17,6 +17,7 @@
   margin-right: 10px;
   color: #777;
 }
+/* inject content after some element */
 .recipe li::after {
   content: ",";
 }

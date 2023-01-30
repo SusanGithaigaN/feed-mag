@@ -3,6 +3,7 @@ import React from 'react'
 import { BrowserRouter} from'react-router-dom'
 // import { NavDropdown } from 'react-bootstrap'
 // styles
+import './NavBar.css'
 // import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar } from 'react-bootstrap';
@@ -15,7 +16,7 @@ export default function NavBar() {
   return (
     <BrowserRouter>
         {/* NavBar */}
-        <Navbar bg="light" expand="lg">
+        <Navbar id='nav' bg="light" expand="lg">
         <Container>
           <Navbar.Brand href="/">Feed-MAG</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
